@@ -1,3 +1,12 @@
-# WpfFinalproject
-萬能管家
-=============
+# Universal Manager
+---------------------------------------
+Help you to fix your life
+-------------
+#function
+----------
+- Set target
+- Save money
+- Save money for a target
+- Physiological clock controll
+- Healthy life management
+------------------------
