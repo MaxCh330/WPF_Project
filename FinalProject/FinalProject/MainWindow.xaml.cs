@@ -20,6 +20,7 @@ namespace FinalProject
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,8 +43,36 @@ namespace FinalProject
             TargetMenu.Visibility = Visibility.Visible;
         }
 
-
         private void TargetMenuClose_Click(object sender, RoutedEventArgs e)
+        {
+            TargetMenu.Visibility = Visibility.Hidden;
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Memo memo = new Memo();
+            memo.DeleteItem += new EventHandler(DeleteItem);
+
+            MemoList.Children.Add(memo);
+        }
+
+        // 刪除事件
+        private void DeleteItem (object sender, EventArgs e)
+        {
+            MemoList.Children.Remove((Memo)sender);
+        }
+
+        private void EnterMenoButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MemoMenu.Visibility = Visibility.Visible;
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            MemoMenu.Visibility = Visibility.Hidden;
+        }
+
+        private void TargetOK_MouseDown(object sender, MouseButtonEventArgs e)
         {
             TargetMenu.Visibility = Visibility.Hidden;
         }

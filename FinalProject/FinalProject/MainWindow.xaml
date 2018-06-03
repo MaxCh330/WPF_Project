@@ -9,6 +9,7 @@
         Title="MainWindow" Height="400" Width="300" WindowStyle="None">
     <Grid x:Name="GridBase" MouseLeftButtonDown="GridBase_MouseLeftButtonDown">
 
+        <!--主選單-->
         <Border x:Name="MainMenu" CornerRadius="15" Visibility="Visible">
 
             <!-- 漸層背景 -->
@@ -22,7 +23,7 @@
             <!--主選單-->
             <StackPanel Margin="25">
                 <local:MyButton x:Name="EnterTargetButton" ButtonText="TARGET" Margin="10 30 10 10" MouseLeftButtonDown="EnterTargetButton_MouseLeftButtonDown"></local:MyButton>
-                <local:MyButton x:Name="EnterMenoButton" ButtonText="MEMO" Margin="10 15 10 10"></local:MyButton>
+                <local:MyButton x:Name="EnterMenoButton" MouseLeftButtonDown="EnterMenoButton_MouseLeftButtonDown" ButtonText="MEMO" Margin="10 15 10 10"></local:MyButton>
                 <local:MyButton x:Name="EnterScheduleButton" ButtonText="SCHEDULE" Margin="10 15 10 10"></local:MyButton>
                 <local:MyButton x:Name="EnterMyselfButton" ButtonText="MYSELF" Margin="10 15 10 10"></local:MyButton>
             </StackPanel>
@@ -38,10 +39,24 @@
             </Border.Background>
             <StackPanel Margin="25">
                 <local:MyComboBox Margin="10"></local:MyComboBox>
-                <local:MyButton Margin="5 70 5 5" ButtonText="OK"></local:MyButton>
+                <local:MyButton Margin="5 70 5 5" ButtonText="OK" x:Name="TargetOK" MouseDown="TargetOK_MouseDown"></local:MyButton>
             </StackPanel>
         </Border>
 
+        <!--Memo-->
+        <Border CornerRadius="15" x:Name="MemoMenu" Visibility="Hidden" >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFF07611" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#FFB83333" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid Margin="25">
+                <StackPanel x:Name="MemoList" Margin="0,10,0,60"/>
+                <Button x:Name="AddButton" Click="AddButton_Click" Height="40" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 10" Background="Transparent" Foreground="White" FontSize="30" BorderThickness="0">增加</Button>
+                <Button x:Name="OkButton" Click="OkButton_Click" Height="40" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20 10" Background="Transparent" Foreground="White" FontSize="30" BorderThickness="0">記錄</Button>
+            </Grid>
+        </Border>
         <!-- 關閉按鈕 -->
         <StackPanel Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
             <Ellipse Width="20" Height="20" Fill="#77FFCFBA" Margin="8" x:Name="CloseButton" MouseLeftButtonDown="CloseButton_MouseLeftButtonDown"></Ellipse>

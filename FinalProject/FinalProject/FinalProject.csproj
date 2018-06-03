@@ -75,6 +75,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Memo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +93,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Memo.xaml.cs">
+      <DependentUpon>Memo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuModel.xaml.cs">
+      <DependentUpon>MenuModel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyButton.xaml.cs">
       <DependentUpon>MyButton.xaml</DependentUpon>
     </Compile>
