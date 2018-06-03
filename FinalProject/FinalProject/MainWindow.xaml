@@ -1,0 +1,50 @@
+﻿<Window x:Class="FinalProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject"
+        mc:Ignorable="d"
+        Background="Transparent" ResizeMode="NoResize" AllowsTransparency="True"
+        Title="MainWindow" Height="400" Width="300" WindowStyle="None">
+    <Grid x:Name="GridBase" MouseLeftButtonDown="GridBase_MouseLeftButtonDown">
+
+        <Border x:Name="MainMenu" CornerRadius="15" Visibility="Visible">
+
+            <!-- 漸層背景 -->
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
+                    <GradientStop Color="#FFFF7A0B" Offset="0.0" />
+                    <GradientStop Color="#FFEE2D2D" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <!--主選單-->
+            <StackPanel Margin="25">
+                <local:MyButton x:Name="EnterTargetButton" ButtonText="TARGET" Margin="10 30 10 10" MouseLeftButtonDown="EnterTargetButton_MouseLeftButtonDown"></local:MyButton>
+                <local:MyButton x:Name="EnterMenoButton" ButtonText="MEMO" Margin="10 15 10 10"></local:MyButton>
+                <local:MyButton x:Name="EnterScheduleButton" ButtonText="SCHEDULE" Margin="10 15 10 10"></local:MyButton>
+                <local:MyButton x:Name="EnterMyselfButton" ButtonText="MYSELF" Margin="10 15 10 10"></local:MyButton>
+            </StackPanel>
+        </Border>
+
+        <!--目標選單-->
+        <Border CornerRadius="15" x:Name="TargetMenu" Visibility="Hidden">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFF07611" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#FFB83333" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Margin="25">
+                <local:MyComboBox Margin="10"></local:MyComboBox>
+                <local:MyButton Margin="5 70 5 5" ButtonText="OK"></local:MyButton>
+            </StackPanel>
+        </Border>
+
+        <!-- 關閉按鈕 -->
+        <StackPanel Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
+            <Ellipse Width="20" Height="20" Fill="#77FFCFBA" Margin="8" x:Name="CloseButton" MouseLeftButtonDown="CloseButton_MouseLeftButtonDown"></Ellipse>
+        </StackPanel>
+    </Grid>
+</Window>
