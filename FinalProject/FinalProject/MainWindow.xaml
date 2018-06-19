@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:FinalProject"
         mc:Ignorable="d"
         Background="Transparent" ResizeMode="NoResize" AllowsTransparency="True"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="400" Width="300" WindowStyle="None">
     <Grid x:Name="GridBase" MouseLeftButtonDown="GridBase_MouseLeftButtonDown">
 
@@ -24,8 +25,8 @@
             <StackPanel Margin="25">
                 <local:MyButton x:Name="EnterTargetButton" ButtonText="TARGET" Margin="10 30 10 10" MouseLeftButtonDown="EnterTargetButton_MouseLeftButtonDown"></local:MyButton>
                 <local:MyButton x:Name="EnterMenoButton" MouseLeftButtonDown="EnterMenoButton_MouseLeftButtonDown" ButtonText="MEMO" Margin="10 15 10 10"></local:MyButton>
-                <local:MyButton x:Name="EnterScheduleButton" ButtonText="SCHEDULE" Margin="10 15 10 10"></local:MyButton>
-                <local:MyButton x:Name="EnterMyselfButton" ButtonText="MYSELF" Margin="10 15 10 10"></local:MyButton>
+                <local:MyButton x:Name="RemindButton" ButtonText="Remind" Margin="10 15 10 10" MouseDown="RemindButton_MouseDown"></local:MyButton>
+                <local:MyButton x:Name="EnterMyselfButton" ButtonText="MYSELF" Margin="10 15 10 10" MouseDown="EnterMyselfButton_MouseDown"></local:MyButton>
             </StackPanel>
         </Border>
 
@@ -38,7 +39,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel Margin="25">
-                <local:MyComboBox Margin="10"></local:MyComboBox>
+                <local:MyComboBox Margin="10" x:Name="targetchooseList"></local:MyComboBox>
                 <local:MyButton Margin="5 70 5 5" ButtonText="OK" x:Name="TargetOK" MouseDown="TargetOK_MouseDown"></local:MyButton>
             </StackPanel>
         </Border>
@@ -57,9 +58,60 @@
                 <Button x:Name="OkButton" Click="OkButton_Click" Height="40" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20 10" Background="Transparent" Foreground="White" FontSize="30" BorderThickness="0">記錄</Button>
             </Grid>
         </Border>
+        
         <!-- 關閉按鈕 -->
         <StackPanel Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
             <Ellipse Width="20" Height="20" Fill="#77FFCFBA" Margin="8" x:Name="CloseButton" MouseLeftButtonDown="CloseButton_MouseLeftButtonDown"></Ellipse>
         </StackPanel>
+
+       <!--remind-->
+       <Border CornerRadius="15" x:Name="RemindMenu" Visibility="Hidden" >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFF07611" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#FFB83333" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Orientation="Vertical" Margin="25">
+                <TextBlock Height="50" Margin="0 5 0 0" Foreground="White" FontSize="40">今天可用:</TextBlock>
+                <TextBlock x:Name="MoneyCanUse" Height="50" FontSize="40" Foreground="White">145</TextBlock>
+                <local:MyButton VerticalAlignment="Bottom" Margin="0 195 0 0" ButtonText="OK" MouseDown="RemindOKBTN_MouseDown" x:Name="RemindOKBTN"></local:MyButton>
+            </StackPanel>
+        </Border>
+        
+        <!--Myself01-->
+        <Border CornerRadius="15" x:Name="MyselfMenu01" Visibility="Hidden" >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFF07611" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#FFB83333" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Orientation="Vertical" Margin="25">
+                <TextBlock Foreground="White" FontSize="40">剩下金錢:</TextBlock>
+                <TextBox Background="Transparent" Foreground="White" FontSize="20" Width="100" TextAlignment="Left" HorizontalAlignment="Left" Margin="5" BorderThickness="0" x:Name="MoneyRemain">0</TextBox>
+                <TextBlock Foreground="White" FontSize="40">剩下日子:</TextBlock>
+                <TextBox Background="Transparent" Foreground="White" FontSize="20" Width="100" TextAlignment="Left" HorizontalAlignment="Left" Margin="5" BorderThickness="0" x:Name="DaysRemain">0</TextBox>
+                <local:MyButton ButtonText="OK" Margin="0 120 0 0" x:Name="MyselfOK_01" MouseDown="MyselfOK_01_MouseDown"></local:MyButton>
+            </StackPanel>
+        </Border>
+        
+        <!--Myself02-->
+        <Border CornerRadius="15" x:Name="MyselfMenu02" Visibility="Hidden" >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFF07611" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#FFB83333" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Orientation="Vertical" Margin="25">
+                <TextBlock Foreground="White" FontSize="40">每月金錢收入:</TextBlock>
+                <TextBox Background="Transparent" Foreground="White" FontSize="20" Width="100" TextAlignment="Left" HorizontalAlignment="Left" Margin="5" BorderThickness="0" x:Name="MoneyGainPM">0</TextBox>
+                <TextBlock Foreground="White" FontSize="40">目標金額:</TextBlock>
+                <TextBox Background="Transparent" Foreground="White" FontSize="20" Width="100" TextAlignment="Left" HorizontalAlignment="Left" Margin="5" BorderThickness="0" x:Name="TargetMenoy">0</TextBox>
+                <local:MyButton ButtonText="OK" Margin="0 120 0 0" x:Name="MyselfOK_02" Mouse.MouseDown="MyselfOK_02_MouseDown"></local:MyButton>
+            </StackPanel>
+        </Border>
+
     </Grid>
 </Window>

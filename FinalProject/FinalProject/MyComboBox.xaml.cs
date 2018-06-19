@@ -56,5 +56,23 @@ namespace FinalProject
             Option2.Visibility = Visibility.Hidden;
            
         }
+        public bool targetchoose
+        {
+            get
+            {
+                if (OptionOpen.ComboBoxOptionTextValue == Option2.ComboBoxOptionTextValue)
+                {
+                    return false;
+                }
+                else if (OptionOpen.ComboBoxOptionTextValue == Option1.ComboBoxOptionTextValue)
+                {
+                    return true;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
     }
 }
